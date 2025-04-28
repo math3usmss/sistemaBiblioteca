@@ -1,12 +1,15 @@
 import models.Livro;
 import services.BibliotecaService;
+import services.EmprestimoService;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         BibliotecaService bs = new BibliotecaService();
+        EmprestimoService es = new EmprestimoService(bs);
 
         int option = menu();
         do {
@@ -31,6 +34,7 @@ public class Main {
                             int isbn = sc.nextInt();
                             System.out.println("Ano de publicação");
                             int anoPublicacao = sc.nextInt();
+                            sc.nextLine();
 
                             bs.CriarLivro(autorLivro, isbn, tituloLivro, anoPublicacao);
                             break;
@@ -80,6 +84,39 @@ public class Main {
                     bs.BuscarTitulo(tituloMaterialBusca);
                     option = menu();
                     break;
+                case 5:
+                    System.out.println("Digite o nome do usuário:");
+                    String nomeLeitor = sc.nextLine();
+                    System.out.println("Digite o CPF do usuário:");
+                    String cpfLeitor = sc.nextLine();
+                    System.out.println("Digite o email do usuário:");
+                    String emailLeitor = sc.nextLine();
+
+                    bs.CriarUsuario(nomeLeitor, cpfLeitor, emailLeitor);
+                    option = menu();
+                    break;
+                case 6:
+                    System.out.println("Digite o CPF do usuario:");
+                    String CPFEmprestimo = sc.nextLine();
+                    System.out.println("Digite o titulo do Material:");
+                    String MaterialEmprestimo = sc.nextLine();
+
+                    es.CriarEmprestimo(CPFEmprestimo, MaterialEmprestimo);
+                    option = menu();
+                    break;
+                case 7:
+                    es.TodosOsEmprestimos();
+                    option = menu();
+                    break;
+                case 8:
+                    System.out.println("Digite o CPF do usuario:");
+                    String cpfDevolucao = sc.nextLine();
+                    System.out.println("Digite o titulo a ser devolvido:");
+                    String tituloDevolvido = sc.nextLine();
+
+                    es.Devolucao(cpfDevolucao, tituloDevolvido);
+                    option = menu();
+                    break;
             }
         } while (option != 0);
 
@@ -93,6 +130,10 @@ public class Main {
         System.out.println("2 - Listar todos os materiais:");
         System.out.println("3 - Materiais disponíveis:");
         System.out.println("4 - Buscar Material por titulo:");
+        System.out.println("5 - Cadastrar usuário:");
+        System.out.println("6 - Fazer emprestimo:");
+        System.out.println("7 - Buscas emprestimos:");
+        System.out.println("8 - Fazer devolução:");
 
         System.out.println("---------------------");
         return sc.nextInt();
