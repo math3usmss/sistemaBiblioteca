@@ -11,6 +11,10 @@ public class Main {
         BibliotecaService bs = new BibliotecaService();
         EmprestimoService es = new EmprestimoService(bs);
 
+        bs.importMaterial();
+        bs.importUsuario();
+        es.importEmprestimo();
+
         int option = menu();
         do {
             switch (option) {
@@ -119,6 +123,10 @@ public class Main {
                     break;
             }
         } while (option != 0);
+
+        bs.exportMaterial();
+        bs.exportUsuario();
+        es.exportEmprestimo();
 
     }
 

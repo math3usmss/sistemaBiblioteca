@@ -15,6 +15,12 @@ public class Livro extends MaterialBiblioteca {
         this.ISBN = ISBN;
     }
 
+    public Livro(String autor, Integer ISBN, String titulo, Integer anoPublicacao, Boolean disponibilidade) {
+        super(titulo, anoPublicacao, disponibilidade, TiposMaterial.LIVRO);
+        this.autor = autor;
+        this.ISBN = ISBN;
+    }
+
     public String getAutor() {
         return autor;
     }

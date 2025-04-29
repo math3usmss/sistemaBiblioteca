@@ -15,6 +15,12 @@ public class Revista extends MaterialBiblioteca{
         this.edicao = edicao;
     }
 
+    public Revista(String titulo, Integer anoPublicacao, String editora, Integer edicao, Boolean disponibilidade) {
+        super(titulo, anoPublicacao, disponibilidade, TiposMaterial.REVISTA);
+        this.editora = editora;
+        this.edicao = edicao;
+    }
+
     public Integer getEdicao() {
         return edicao;
     }

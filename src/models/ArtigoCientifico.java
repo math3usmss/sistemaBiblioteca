@@ -25,6 +25,18 @@ public class ArtigoCientifico extends MaterialBiblioteca{
 
     }
 
+    public ArtigoCientifico(String titulo, Integer anoPublicacao, String publicacao, String DOI, String autoresArtigo, Boolean disponibilidade) {
+        super(titulo, anoPublicacao,disponibilidade, TiposMaterial.ARTIGO_CIENTIFICO);
+        this.publicacao = publicacao;
+        this.DOI = DOI;
+
+        String[] autoresartigo = autoresArtigo.split("\\s*,\\s*");
+        for (String autores : autoresartigo){
+            listaAutores.add(autores);
+        }
+
+    }
+
     public String getPublicacao() {
         return publicacao;
     }

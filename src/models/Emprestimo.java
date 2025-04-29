@@ -22,6 +22,14 @@ public class Emprestimo {
         this.dataEmprestimo = LocalDate.now();
     }
 
+    public Emprestimo(String usuarioCPF, MaterialBiblioteca materialBiblioteca, LocalDate dataEmprestimo, LocalDate dataDevolucao, Double multa) {
+        this.usuarioCPF = usuarioCPF;
+        this.materialBiblioteca = materialBiblioteca;
+        this.dataEmprestimo = dataEmprestimo;
+        this.devolucao = dataDevolucao;
+        this.multa = multa;
+    }
+
     public String getUsuario() {
         return usuarioCPF;
     }
