@@ -14,10 +14,12 @@
    - Buscar Emprestimos
    - Fazer devolução.
    - Salvamento automático dos usuarios, emprestimos e materiais em arquivo ao sair da aplicação, junto com a instanciação automática ao entrar novamente.
+   - Cálculo automático de multa, a depender do tipo de material.
 
 - Técnico
   - Projeto feito em Java, separado por camadas:
-     
+    - Models, representando as entidades do sistema, a classe abstrata Material e as subclasses derivadas, Livro, Revista e Artigo científico.
+    - Services, responsável pela lógica de negócio da aplicação, funcionalidades básicas, métodos para implementação correta a depender do tipo de material,  etc.
  
 ## Autor
 - Matheus Manoel Souza da Silva
